@@ -1,87 +1,111 @@
+/* Resetar margin e padding do body e html */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: justify;
-   
-    }
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
 
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       
-    }
+/* Estilização do header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #fff; 
+    border-bottom: solid 1px #ffffff; 
+    padding: 20px 0;
+}
 
+/* Estilização do footer */
+.footer {
+    min-height: 100px;
+    width: 100%;
+    background-color: #494949;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: solid 1px #cdcdcd; 
+}
 
-
-ul { list-style: none; padding-left: 5px; }
-a { color:blue; text-decoration: none;}
+/* Estilização da barra de navegação */
 .bar {
     background-color: #f9f9fb;
-    padding:15px;
+    padding: 15px;
     border-top: solid 1px #cdcdcd;
     border-bottom: solid 1px #cdcdcd;
 }
-.content {
-    max-width: 1440px;
-    margin: auto;
-    grid-gap: 3rem;
-    display: grid;
-    gap: 3rem;
-    grid-template-areas: "sidebar main anchors";
-    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-.footer {
-    min-height: 100px;
-    border-top: solid 1px #cdcdcd;
-}
+
+/* Estilização da classe anchors */
 .anchors {
     border-left: solid 1px #cdcdcd;
     padding-left: 15px;
 }
+
+/* Estilização da sidebar */
 .sidebar {
     border-right: solid 1px #cdcdcd;
 }
+
+/* Estilização do content */
+.content {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    gap: 3rem;
+    grid-template-areas: 
+        "sidebar main anchors";
+    grid-template-columns: minmax(0, 15rem) minmax(0, 2.5fr) minmax(0, 15rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Estilização de listas */
+ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+/* Estilização de links */
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Estilização de figuras */
 figure {
     text-align: center;
 }
 
+/* Estilização de tabelas */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #f0f0f0; /* Cinza claro */
-    text-align: center; 
+    background-color: #f0f0f0;
+    text-align: center;
 }
+
 th, td {
     padding: 5px;
     border: 2px solid #fcfafa;
-    text-align: left;
-    text-align: center; 
+    text-align: center;
 }
+
 th {
-    background-color: #d9d9d9; /* Cinza um pouco mais escuro */
-    text-align: center; /* Centraliza o texto do cabeçalho */
-    font-size: 1.3em; /* Aumenta o tamanho da fonte do cabeçalho */
+    background-color: #d9d9d9;
+    font-size: 1.3em;
 }
-.content-container {
-    width: 100%;
-}
+
+/* Estilização de imagens dentro de content-container */
 .content-container img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.footer {
-    background-color: #494949;
-    color: #fff;
-    padding: 0px 0;
-    text-align: center;
-}
-
+/* Estilização do conteúdo do footer */
 .footer-content {
     display: flex;
     justify-content: space-around;
@@ -91,8 +115,7 @@ th {
     margin: 0 auto;
 }
 
-
-
+/* Estilização de input dentro de footer-section */
 .footer-section form input {
     padding: 5px;
     margin-right: 5px;
@@ -100,6 +123,7 @@ th {
     border-radius: 3px;
 }
 
+/* Estilização de botão dentro de footer-section */
 .footer-section form button {
     padding: 5px 10px;
     border: none;
@@ -113,6 +137,7 @@ th {
     background-color: rgb(238, 0, 0);
 }
 
+/* Estilização da parte inferior do footer */
 .footer-bottom {
     text-align: center;
     padding: 10px 0;
@@ -120,3 +145,73 @@ th {
     margin-top: 20px;
 }
 
+/* Media Query para telas menores que 1024px */
+@media (max-width: 1024px) {
+    .content {
+        grid-template-areas: 
+            "main"
+            "sidebar"
+            "anchors";
+        grid-template-columns: 1fr;
+    }
+
+    .anchors {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .sidebar {
+        border-right: none;
+    }
+}
+
+/* Media Query para telas menores que 768px */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .anchors {
+        order: -1;
+    }
+
+    .content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section form input {
+        margin-bottom: 10px;
+    }
+}
+
+/* Media Query para telas menores que 480px */
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    .anchors {
+        order: -1;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        padding: 5px 0;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+}
